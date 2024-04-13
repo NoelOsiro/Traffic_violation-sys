@@ -1,102 +1,53 @@
 {% extends 'base.html' %}
 {% load static %}
+
 {% block css %}
     {{ block.super }}
     <!-- Additional CSS specific to the login page -->
-   <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
 {% endblock %}
 
-<<<<<<< HEAD
 {% block content %}
-<div class="container" id="container">
-	<div class="form-container sign-up-container">
-		<form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-			<h1>Create Account</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+
+<div class="main">  	
+	
+
+	<div class="signup">
+		{% if error_message %}
+		<div class="message-banner" id="messageBanner">
+			<div class="message-content">
+				<p>{{ error_message }}</p> 
 			</div>
-			<span>or use your email for registration</span>
-			<input type="text" placeholder="Username" id="username" name="username">
-            <input type="text" placeholder="Email" id="email" name="email">
-			<input type="password" placeholder="Password" id="password" name="password">
-            <input type="password" placeholder="Confirm Password" id="confirm-password" name="confirm-password">
-			<button>Sign Up</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<form method="post" action="{% url 'login' %}">
-            {% csrf_token %}
-			<h1>Sign in</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your account</span>
-			<input type="text" placeholder="Username" id="username" name="username">
-			<input type="password" placeholder="Password" id="password" name="password">
-			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Traffic Violation System</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign Up</button>
-			</div>
+			<label for="chk" aria-hidden="true" class="close-icon" id="closeIcon">
+				<i class="fas fa-times"></i>
+			</label>
 		</div>
+		{% endif %}
+		<form method="post" action="{% url 'login' %}">
+			{% csrf_token %}
+			<label for="chk" aria-hidden="true">Login</label>
+			
+			<input type="text" name="username" id="username" placeholder="Username" required>
+			<input type="password" name="password" id="password" placeholder="Password" required>
+			<button>Login</button>
+		</form>
+	</div>
+
+	<div class="login">
+		<form method="post" action="{% url 'login' %}">
+			{% csrf_token %}
+			<label for="chk" aria-hidden="true">Sign up</label>
+			<button>Sign up</button>
+		</form>
 	</div>
 </div>
+{% endblock %}
+
 {% block scripts %}
-    <script src="{% static 'js/login.js' %}"></script>
+	{{ block.super }}
+	<!-- Additional JS specific to the login page -->
+	<script src="{% static 'js/login.js' %}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
 {% endblock %}
-{% endblock %}
-=======
-<head>
-    <!-- Design by foolishdeveloper.com -->
-    <title>Title||Traffic Violation System</title>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
-    <!--Stylesheet-->
-    <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
-
-</head>
-
-<body>
-    <div class="background">
-        <div class="shape"></div>
-        <div class="shape"></div>
-    </div>
-    <!-- login.html -->
-    <form method="post" action="{% url 'login' %}">
-        {% csrf_token %}
-        <h3>Login Here</h3>
-
-        <label for="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username" name="username">
-
-        <label for="password">Password</label>
-        <input type="password" placeholder="Password" id="password" name="password">
-
-        <button type="submit">Log In</button>
-        <div class="social">
-            <div class="go"><i class="fab fa-google"></i> Google</div>
-            <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
-        </div>
-    </form>
-</body>
-
-</html>
->>>>>>> ecb6bb35a42e8519c133a80c8e73c7511aa268c7
