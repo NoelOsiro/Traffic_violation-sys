@@ -1,11 +1,12 @@
-const signUpButton = document.getElementById('signUp');
-const signInButton = document.getElementById('signIn');
-const container = document.getElementById('container');
+document.addEventListener('DOMContentLoaded', function () {
+    const closeIcon = document.getElementById('closeIcon');
+    const messageBanner = document.getElementById('messageBanner');
 
-signUpButton.addEventListener('click', () => {
-	container.classList.add("right-panel-active");
-});
-
-signInButton.addEventListener('click', () => {
-	container.classList.remove("right-panel-active");
+    if (closeIcon && messageBanner) { // Check if elements are found
+        closeIcon.addEventListener('click', function () {
+            messageBanner.style.display = 'none';
+        });
+    } else {
+        console.error('Error: Close icon or message banner element not found.');
+    }
 });
