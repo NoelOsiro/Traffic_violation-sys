@@ -5,10 +5,17 @@
         <link rel="shortcut icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
         <title>Traffic Violation Report System</title>
         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+        {% block css %}
+        <!-- Placeholder for CSS links -->
+        {% endblock %}
     </head>
 <body>
     {% block content %}
     <h1>Home Page</h1>
+    {% endblock %}
+
+    {% block scripts %}
+    <!-- Placeholder for scripts -->
     {% endblock %}
 </body>
 </html>
